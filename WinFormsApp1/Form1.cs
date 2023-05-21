@@ -11,6 +11,10 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            if (Form2.namaUser != "admin")
+            {
+                manageUserToolStripMenuItem.Visible = false;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -201,6 +205,28 @@ namespace WinFormsApp1
                     iceLevel = "100";
                     break;
             }
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 F2 = new Form2();
+            F2.Show();
+            this.Hide();
+        }
+
+        private void manageUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming Soon!");
         }
     }
 }

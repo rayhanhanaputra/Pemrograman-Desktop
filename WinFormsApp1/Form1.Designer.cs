@@ -58,13 +58,17 @@
             label20 = new Label();
             label21 = new Label();
             label22 = new Label();
+            menuStrip1 = new MenuStrip();
+            logoutToolStripMenuItem = new ToolStripMenuItem();
+            manageUserToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(274, 9);
+            label1.Location = new Point(280, 28);
             label1.Name = "label1";
             label1.Size = new Size(248, 41);
             label1.TabIndex = 0;
@@ -358,6 +362,30 @@
             label22.TabIndex = 34;
             label22.Text = "TOTAL HARGA";
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { logoutToolStripMenuItem, manageUserToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 28);
+            menuStrip1.TabIndex = 35;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            logoutToolStripMenuItem.Size = new Size(70, 24);
+            logoutToolStripMenuItem.Text = "Logout";
+            logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
+            // 
+            // manageUserToolStripMenuItem
+            // 
+            manageUserToolStripMenuItem.Name = "manageUserToolStripMenuItem";
+            manageUserToolStripMenuItem.Size = new Size(110, 24);
+            manageUserToolStripMenuItem.Text = "Manage User";
+            manageUserToolStripMenuItem.Click += manageUserToolStripMenuItem_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -393,9 +421,13 @@
             Controls.Add(label6);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -432,5 +464,8 @@
         private Label label20;
         private Label label21;
         private Label label22;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem logoutToolStripMenuItem;
+        private ToolStripMenuItem manageUserToolStripMenuItem;
     }
 }
