@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             label2 = new Label();
             label6 = new Label();
@@ -61,6 +62,9 @@
             menuStrip1 = new MenuStrip();
             logoutToolStripMenuItem = new ToolStripMenuItem();
             manageUserToolStripMenuItem = new ToolStripMenuItem();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new PrintPreviewDialog();
+            button2 = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -295,7 +299,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(324, 304);
+            button1.Location = new Point(329, 280);
             button1.Name = "button1";
             button1.Size = new Size(143, 88);
             button1.TabIndex = 28;
@@ -386,11 +390,38 @@
             manageUserToolStripMenuItem.Text = "Manage User";
             manageUserToolStripMenuItem.Click += manageUserToolStripMenuItem_Click;
             // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            printPreviewDialog1.Load += printPreviewDialog1_Load;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(353, 392);
+            button2.Name = "button2";
+            button2.RightToLeft = RightToLeft.Yes;
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 36;
+            button2.Text = "PRINT";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
             Controls.Add(label22);
             Controls.Add(label21);
             Controls.Add(label20);
@@ -467,5 +498,8 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem manageUserToolStripMenuItem;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
+        private Button button2;
     }
 }
