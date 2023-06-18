@@ -1,5 +1,10 @@
+using CsvHelper;
+using QRCoder;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 
 namespace WinFormsApp1
@@ -157,6 +162,51 @@ namespace WinFormsApp1
 
             label21.Text = newSentence.ToString();
             label20.Text = "Rp" + hargaTotal;
+
+            var records = new List<object>
+            {
+                new { Id = 1, Name = newSentence.ToString() },
+            };
+
+            using (var writer = new StreamWriter("order.csv"))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+               csv.WriteRecords(records);
+            }
+
+            int maxQrCodeSize = 200;
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(newSentence.ToString(), QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            int moduleSize = maxQrCodeSize / qrCodeData.ModuleMatrix.Count;
+            Bitmap qrCodeImage = qrCode.GetGraphic(moduleSize);
+
+            qrCodeImage.Save("qrcode.png", System.Drawing.Imaging.ImageFormat.Png);
+            pictureBox1.Image = qrCodeImage;
+
+            string senderEmail = "alextesseracts@gmail.com";
+            string senderPassword = "D30A06A399EE6626D1219F2D9A5C5E482474";
+            string recipientEmail = "rayhanrhanaputra@outlook.com";
+            string subject = "QR Code Pesanan Anda";
+            string body = "Please find the attached QR code.";
+
+            using (MailMessage mailMessage = new MailMessage())
+            {
+                mailMessage.From = new MailAddress(senderEmail);
+                mailMessage.To.Add(recipientEmail);
+                mailMessage.Subject = subject;
+                mailMessage.Body = body;
+
+                Attachment attachment = new Attachment("qrcode.png");
+                mailMessage.Attachments.Add(attachment);
+
+                using (SmtpClient smtpClient = new SmtpClient("smtp.elasticemail.com", 2525))
+                {
+                    smtpClient.Credentials = new NetworkCredential(senderEmail, senderPassword);
+                    smtpClient.EnableSsl = true;
+                    smtpClient.Send(mailMessage);
+                }
+            }
         }
 
         private void label20_Click(object sender, EventArgs e)
@@ -237,7 +287,7 @@ namespace WinFormsApp1
 
         private void printPreviewDialog1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)

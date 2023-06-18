@@ -65,7 +65,9 @@
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
             button2 = new Button();
+            pictureBox1 = new PictureBox();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -339,7 +341,7 @@
             // 
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label20.Location = new Point(672, 406);
+            label20.Location = new Point(280, 464);
             label20.Name = "label20";
             label20.Size = new Size(49, 28);
             label20.TabIndex = 32;
@@ -360,7 +362,7 @@
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label22.Location = new Point(512, 406);
+            label22.Location = new Point(34, 464);
             label22.Name = "label22";
             label22.Size = new Size(148, 28);
             label22.TabIndex = 34;
@@ -416,11 +418,20 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(550, 342);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(174, 176);
+            pictureBox1.TabIndex = 37;
+            pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 539);
+            Controls.Add(pictureBox1);
             Controls.Add(button2);
             Controls.Add(label22);
             Controls.Add(label21);
@@ -459,6 +470,7 @@
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -501,5 +513,6 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
         private Button button2;
+        private PictureBox pictureBox1;
     }
 }
