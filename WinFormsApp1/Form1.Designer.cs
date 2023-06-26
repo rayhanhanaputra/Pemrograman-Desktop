@@ -66,6 +66,7 @@
             printPreviewDialog1 = new PrintPreviewDialog();
             button2 = new Button();
             pictureBox1 = new PictureBox();
+            chatbotToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -371,12 +372,13 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { logoutToolStripMenuItem, manageUserToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { logoutToolStripMenuItem, manageUserToolStripMenuItem, chatbotToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 28);
             menuStrip1.TabIndex = 35;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
             // logoutToolStripMenuItem
             // 
@@ -425,6 +427,13 @@
             pictureBox1.Size = new Size(174, 176);
             pictureBox1.TabIndex = 37;
             pictureBox1.TabStop = false;
+            // 
+            // chatbotToolStripMenuItem
+            // 
+            chatbotToolStripMenuItem.Name = "chatbotToolStripMenuItem";
+            chatbotToolStripMenuItem.Size = new Size(76, 24);
+            chatbotToolStripMenuItem.Text = "Chatbot";
+            chatbotToolStripMenuItem.Click += chatbotToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -514,5 +523,6 @@
         private PrintPreviewDialog printPreviewDialog1;
         private Button button2;
         private PictureBox pictureBox1;
+        private ToolStripMenuItem chatbotToolStripMenuItem;
     }
 }

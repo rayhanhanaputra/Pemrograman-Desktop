@@ -171,7 +171,7 @@ namespace WinFormsApp1
             using (var writer = new StreamWriter("order.csv"))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
-               csv.WriteRecords(records);
+                csv.WriteRecords(records);
             }
 
             int maxQrCodeSize = 200;
@@ -313,6 +313,17 @@ namespace WinFormsApp1
             bitmap = new Bitmap(s.Width, s.Height, myGraphics);
             Graphics memoryGraphics = Graphics.FromImage(bitmap);
             memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void chatbotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.Show();
         }
     }
 }
